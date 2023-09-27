@@ -28,7 +28,8 @@ class DetectionLoader():
             assert stream.isOpened(), 'Cannot capture source'
             self.path = input_source
             self.datalen = int(stream.get(cv2.CAP_PROP_FRAME_COUNT))
-            self.fourcc = int(stream.get(cv2.CAP_PROP_FOURCC))
+            # self.fourcc = int(stream.get(cv2.CAP_PROP_FOURCC))
+            self.fourcc = cv2.VideoWriter_fourcc(*"mp4v")
             self.fps = stream.get(cv2.CAP_PROP_FPS)
             self.frameSize = (int(stream.get(cv2.CAP_PROP_FRAME_WIDTH)), int(stream.get(cv2.CAP_PROP_FRAME_HEIGHT)))
             self.videoinfo = {'fourcc': self.fourcc, 'fps': self.fps, 'frameSize': self.frameSize}
